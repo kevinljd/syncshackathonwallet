@@ -67,11 +67,11 @@ def woolworths():
     data = query(name, accNum)
     return render_template('woolworths.html', newdata=data)
 
-@app.route("/dintaifung")
+@app.route("/catmosphere")
 def dintaifung():
-    name = "dintaifung"
+    name = "catmosphere"
     data = query(name, accNum)
-    return render_template('dintaifung.html', newdata=data)
+    return render_template('catmosphere.html', newdata=data)
 
 @app.route("/frankiesbeans")
 def fredscoffee():
@@ -91,7 +91,7 @@ def backend():
         accNum = request.form['accNum']
         nameOfCompany='frankiesbeans'
         update_in_transaction(nameOfCompany, accNum)
-        
+
         return redirect(url_for('backend'))
     return render_template('backend.html', database=wards)
 
