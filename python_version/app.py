@@ -9,7 +9,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 
-cred = credentials.Certificate('./firebase.json')
+cred = credentials.Certificate('../../../desktop/firebase.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -77,7 +77,9 @@ def dintaifung():
 def fredscoffee():
     name = "frankiesbeans"
     data = query(name, accNum)
-    return render_template('frankiesbeans.html', newdata=data)
+    coffeeCount = data['colouredcount']
+    greyCount = 10 - coffeeCount
+    return render_template('frankiesbeans.html', colouredCount=coffeeCount, greyCount=greyCount)
 
 @app.route("/business")
 def business():
